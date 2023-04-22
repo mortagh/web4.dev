@@ -2,12 +2,16 @@ const express = require('express');
 const router = express.Router();
 const { dbConnect } = require('../module');
 
-router.delete('/', (req, res) => {
+router.delete('/:id', (req, res) => {
     const connection = dbConnect();
-    const sql = "SELECT * FROM memes";
+    const id = req.params.id;
+    const sql = `DELETE FROM memes WHERE id = ${id}`;
     connection.query(sql, function(err, memes) {
-      if (err) throw err;
-      res.json(memes)
+        if (err) {
+            res.status(500).json({ message: err.message });
+        } else {
+            res.status(200).json({ message: 'Meme deleted' });
+        }
     });
     connection.end();
   }); 
