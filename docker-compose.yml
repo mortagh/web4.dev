@@ -1,0 +1,46 @@
+# Use root/example as user/password credentials
+version: "3.1"
+
+networks:
+  net:
+
+volumes:
+  db_data:
+
+services:
+
+  db:
+    image: mysql
+    # NOTE: use of "mysql_native_password" is not recommended: https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html#upgrade-caching-sha2-password
+    # (this is just an example, not intended to be a production configuration)
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+    networks:
+      - net
+    volumes:
+      - db_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY=0
+      - PMA_HOSTS=db
+
+    networks:
+      - net
+
+  minio:
+      image: 'bitnami/minio:latest'
+      ports:
+        - '9000:9000'
+        - '9001:9001'
+      environment:
+        - MINIO_ROOT_USER=minio-root-user
+        - MINIO_ROOT_PASSWORD=minio-root-password
