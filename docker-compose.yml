@@ -44,3 +44,41 @@ services:
       environment:
         - MINIO_ROOT_USER=minio-root-user
         - MINIO_ROOT_PASSWORD=minio-root-password
+  
+  api:
+    build:
+      context: backend
+      dockerfile: Dockerfile
+      target: dev
+    ports:
+      - "3000:3000"
+
+    # Sert à lier le volume backend à l'image de l'api
+    volumes:
+      - ./backend:/usr/src/app
+
+    # Donne un ordre de lancement des services
+    depends_on:
+      - db
+      - minio
+
+    networks:
+      - net
+
+  frontend:
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+      target: dev
+
+    ports:
+      - "5173:5173"
+
+    volumes:
+      - ./frontend:/usr/src/app
+
+      #override node_modules (conflicts with linux)
+      - /usr/src/app/node_modules
+
+    networks:
+      - net
