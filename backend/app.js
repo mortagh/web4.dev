@@ -1,10 +1,16 @@
 const express = require('express')
 const app = express()
-
 const cors = require('cors')
-app.use(cors())
 
-const port = 3001;
+require('dotenv').config();
+
+const memesRouter = require("./routes/memes");
+
+app.use(cors())
+app.use('/memes', memesRouter);
+
+const port = process.env.PORT || 3000;
+
 app.listen(port, () => {
-    console.log(`App listening at http://localhost:${port}`)
+    console.log(`Serveur démarré sur http://localhost:${port}`)
   });
