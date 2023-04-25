@@ -5,7 +5,7 @@ const AWS = require('aws-sdk')
 require('dotenv').config();
 
 const bucket = "memes-bucket"
-const port = 9000
+const port = process.env.MINIO_PORT
 const host = process.env.MINIO_HOST
 
 //service qui ce connecte au bucket
