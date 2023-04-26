@@ -15,7 +15,7 @@
             <label for="bottom-text">Texte du bas</label>
             <input type="text" name="bottom-text" id="bottom-text">
 
-            <input type="submit" value="Login">
+            <input type="submit" value="Créer">
         </form>
 
     </div>

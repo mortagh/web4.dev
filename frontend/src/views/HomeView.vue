@@ -13,14 +13,14 @@ const memes = [
 
 <template>
   <main>
-    <div class="memes">
+    <section class="memes">
       <div class="meme" v-for="meme in memes" :key="meme.name">
         <h2>{{ meme.name }}</h2>
         <div class="image">
           <img :src="meme.image" alt="meme">
         </div>
       </div>
-    </div>
+    </section>
 
 
   </main>
