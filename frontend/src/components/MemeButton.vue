@@ -9,12 +9,11 @@
       w-max
       relative
       border-2 border-purple
-      cursor-pointer
       
       transition-all duration-300
       max-md:py-2.5 max-md:px-3 max-md:aspect-square
       "
-    :class="{'bg-white text-purple pr-8 pl-3': isActive, 'bg-purple text-white px-6 hover:bg-white hover:text-purple hover:pr-8 hover:pl-3': !isActive}">
+    :class="{'bg-white text-purple pr-8 pl-3 cursor-default': isActive, 'bg-purple text-white px-6 hover:bg-white hover:text-purple hover:pr-8 hover:pl-3 cursor-pointer': !isActive}">
     <p class="font-medium max-md:hidden">Créer un meme</p>
     <font-awesome-icon 
       class="

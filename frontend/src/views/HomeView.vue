@@ -2,6 +2,8 @@
 import MemeButton from '../components/MemeButton.vue'
 import LogoutButton from '../components/LogoutButton.vue'
 import IconButton from '../components/IconButton.vue'
+import SubmitButton from '../components/SubmitButton.vue'
+import Input from '../components/Input.vue'
 
 //data fake
 const memes = [
@@ -19,6 +21,8 @@ const memes = [
     <MemeButton />
     <LogoutButton />
     <IconButton />
+    <SubmitButton />
+    <Input />
     <section class="memes">
       <div class="meme" v-for="meme in memes" :key="meme.name">
         <h2>{{ meme.name }}</h2>
