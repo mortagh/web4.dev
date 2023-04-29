@@ -1,5 +1,5 @@
 <template>
-    <a :href="link"
+    <a href=""
 
     class="
         group
@@ -12,9 +12,9 @@
         relative
         border-2 border-black
         cursor-pointer
-        hover:bg-black hover:text-white hover:pr-8 hover:pl-3
+        hover:bg-black hover:text-white hover:pr-10 hover:pl-3
         transition-all duration-300
-        max-md:py-2.5 max-md:px-3">
+        max-md:p-2.5">
     <p class="font-medium max-md:hidden">Se déconnecter</p>
         <font-awesome-icon 
         

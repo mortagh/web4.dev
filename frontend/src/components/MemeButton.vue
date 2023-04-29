@@ -2,29 +2,27 @@
   <a
     class="
       group
-      bg-purple text-white
       font-main text-base
       rounded-main
-      px-6 py-2.5
+      py-2.5
       flex items-center gap-2
       w-max
       relative
       border-2 border-purple
       cursor-pointer
-      hover:bg-white hover:text-purple hover:pr-8 hover:pl-3
+      
       transition-all duration-300
       max-md:py-2.5 max-md:px-3
       "
-    v-if="isActive"
-    :class="{'bg-red': isActive}">
+    :class="{'bg-white text-purple pr-8 pl-3': isActive, 'bg-purple text-white px-6 hover:bg-white hover:text-purple hover:pr-8 hover:pl-3': !isActive}">
     <p class="font-medium max-md:hidden">Créer un meme</p>
     <font-awesome-icon 
       class="
-        absolute -right-2
-        opacity-0 duration-300
+        absolute
+        duration-300
         text-purple
-        group-hover:opacity-100 group-hover:right-3
         max-md:relative max-md:opacity-100 max-md:text-white max-md:right-0"
+        :class="{'opacity-100 right-3 max-md:text-purple': isActive, 'opacity-0 -right-2 group-hover:opacity-100 group-hover:right-3': !isActive}"
       :icon="['fas', 'plus']" />
   </a>
 </template>
