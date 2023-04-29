@@ -1,6 +1,7 @@
 <script setup>
 import MemeButton from '../components/MemeButton.vue'
 import LogoutButton from '../components/LogoutButton.vue'
+import IconButton from '../components/IconButton.vue'
 
 //data fake
 const memes = [
@@ -14,9 +15,10 @@ const memes = [
 
 <template>
   <main>
-    <h1 class="text-3xl font-bold underline">Bienvenue sur Meme4.dev</h1>
+    <h1 class="font-main font-semibold text-purple text-5xl text-center">Bienvenue sur Meme4.dev</h1>
     <MemeButton />
     <LogoutButton />
+    <IconButton />
     <section class="memes">
       <div class="meme" v-for="meme in memes" :key="meme.name">
         <h2>{{ meme.name }}</h2>

@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   content: [
     "./index.html",
@@ -8,11 +11,13 @@ module.exports = {
     colors: {
       'purple': '#6300FF',
       'black': '#171717',
-      'white': '#fff'
+      'white': '#fff',
+      DEFAULT: '#171717'
     },
     fontFamily: {
       'main': ['Chakra Petch', 'sans-serif'],
       'second': ['Rubik', 'sans-serif'],
+      'sans': ['Rubik', 'sans-serif', defaultTheme.fontFamily.sans]
     },
     borderRadius: {
       'main': '25px',

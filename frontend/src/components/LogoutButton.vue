@@ -14,7 +14,7 @@
         cursor-pointer
         hover:bg-black hover:text-white hover:pr-10 hover:pl-3
         transition-all duration-300
-        max-md:p-2.5">
+        max-md:p-2.5 max-md:aspect-square">
     <p class="font-medium max-md:hidden">Se déconnecter</p>
         <font-awesome-icon 
         

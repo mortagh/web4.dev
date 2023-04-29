@@ -12,7 +12,7 @@
       cursor-pointer
       
       transition-all duration-300
-      max-md:py-2.5 max-md:px-3
+      max-md:py-2.5 max-md:px-3 max-md:aspect-square
       "
     :class="{'bg-white text-purple pr-8 pl-3': isActive, 'bg-purple text-white px-6 hover:bg-white hover:text-purple hover:pr-8 hover:pl-3': !isActive}">
     <p class="font-medium max-md:hidden">Créer un meme</p>
@@ -21,8 +21,8 @@
         absolute
         duration-300
         text-purple
-        max-md:relative max-md:opacity-100 max-md:text-white max-md:right-0"
-        :class="{'opacity-100 right-3 max-md:text-purple': isActive, 'opacity-0 -right-2 group-hover:opacity-100 group-hover:right-3': !isActive}"
+        max-md:relative max-md:opacity-100 max-md:right-0"
+        :class="{'opacity-100 right-3 max-md:text-purple': isActive, 'opacity-0 -right-2 group-hover:opacity-100 group-hover:right-3 max-md:text-white': !isActive}"
       :icon="['fas', 'plus']" />
   </a>
 </template>
