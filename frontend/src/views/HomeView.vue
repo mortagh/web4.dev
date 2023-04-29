@@ -13,6 +13,7 @@ const memes = [
 
 <template>
   <main>
+    <h1 class="text-3xl font-bold underline">Bienvenue sur Meme4.dev</h1>
     <section class="memes">
       <div class="meme" v-for="meme in memes" :key="meme.name">
         <h2>{{ meme.name }}</h2>
