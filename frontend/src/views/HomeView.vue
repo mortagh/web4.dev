@@ -20,9 +20,9 @@ const memes = [
     <h1 class="font-main font-semibold text-purple text-5xl text-center">Bienvenue sur Meme4.dev</h1>
     <MemeButton />
     <LogoutButton />
-    <IconButton />
-    <SubmitButton />
-    <Input />
+    <IconButton icon="download"/>
+    <SubmitButton name="envoyer" />
+    <Input name="test" />
     <section class="memes">
       <div class="meme" v-for="meme in memes" :key="meme.name">
         <h2>{{ meme.name }}</h2>

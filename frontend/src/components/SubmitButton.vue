@@ -1,6 +1,6 @@
 <template>
     
-    <input type="submit" value="Envoyer"
+    <input type="submit" :value="name"
     class="
     bg-black text-white
     font-base
@@ -12,3 +12,20 @@
     ">
 
 </template>
+
+<script>
+
+export default {
+    name: 'Input',
+    props: {
+        name: {
+            required: true
+        },
+    },
+    data() {
+        return {
+        };
+    },
+
+}
+</script>

@@ -1,6 +1,6 @@
 <template>
 
-    <input type="text" name="" id="" placeholder="Utilisateur"
+    <input type="text" :name="name" :id="name" :placeholder="name"
     class="
     text-white
     font-base
@@ -11,3 +11,20 @@
     ">
 
 </template>
+
+<script>
+
+export default {
+    name: 'Input',
+    props: {
+        name: {
+            required: true
+        },
+    },
+    data() {
+        return {
+        };
+    },
+
+}
+</script>

@@ -16,8 +16,23 @@
     ">
         <font-awesome-icon 
         class="h-4 max-md:h3"
-        :icon="['fas', 'download']" />
+        :icon="['fas', icon]" />
     
     </button>
 
 </template>
+
+<script>
+export default {
+    name: 'IconButton',
+    props: {
+        icon: {
+            required: true
+        }
+    },
+    data() {
+        return {
+        };
+    },
+}
+</script>
