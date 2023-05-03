@@ -1,5 +1,5 @@
 <template>
-  <a
+  <RouterLink to="/creation"
     class="
       group
       font-main text-base
@@ -23,7 +23,7 @@
         max-md:relative max-md:opacity-100 max-md:right-0"
         :class="{'opacity-100 right-3 max-md:text-purple': isActive, 'opacity-0 -right-2 group-hover:opacity-100 group-hover:right-3 max-md:text-white': !isActive}"
       :icon="['fas', 'plus']" />
-  </a>
+  </RouterLink>
 </template>
 
 <script>
@@ -36,7 +36,7 @@ export default {
   },
   mounted() {
     if (window.location.href === "http://localhost:5173/") {
-      this.isActive = true;
+      this.isActive = false;
     }
   },
 };

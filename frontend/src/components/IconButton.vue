@@ -4,14 +4,14 @@
 
     class="
     rounded-main
-    text-purple
+    text-purple bg-white
     p-2.5
-    flex items-center
-    w-max
+    w-10 h-10
+    flex items-center justify-center
     border-2 border-black
     cursor-pointer
     aspect-square
-    hover:text-white hover:bg-purple hover:border-purple
+    hover:text-white hover:bg-purple
     max-md:
     ">
         <font-awesome-icon 

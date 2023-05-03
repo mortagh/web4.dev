@@ -1,29 +1,26 @@
+<script setup>
+import MemeButton from './MemeButton.vue'
+import LogoutButton from './LogoutButton.vue'
+</script>
+
 <template>
-      <header>
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/login">Login</RouterLink>
-        <RouterLink to="/creation">Créer un meme</RouterLink>
-      </nav>
+  <header
+  class="
+  bg-white shadow-main
+  py-2 px-16 mb-6
+  w-full
+  flex justify-center items-center
+  relative
+  ">
+    <RouterLink to="/"><img src="/logo.svg" alt="logo Meme4.dev" class="
+      h-24
+      "></RouterLink>
+    <nav 
+    class="flex gap-6 items-center absolute right-16">
+      <MemeButton/>
+      <LogoutButton/>
+    </nav>
   </header>
 
 
 </template>
-
-  <style>
-
-    header{
-        width: 100%;
-    }
-
-    header nav{
-        display: flex;
-        width: 100%;
-        justify-content: space-around;
-        align-items: center;
-        background-color:#ffffff;
-        height: 50px;
-        gap: 2rem;
-    }
-    
-  </style>

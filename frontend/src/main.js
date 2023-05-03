@@ -4,6 +4,10 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 
+import IconButton from './components/IconButton.vue'
+import SubmitButton from './components/SubmitButton.vue'
+import Input from './components/Input.vue'
+
 import './assets/main.css'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -16,7 +20,11 @@ import { faPlus, faRightFromBracket, faDownload, faTrash } from '@fortawesome/fr
 
 library.add(faPlus, faRightFromBracket, faDownload, faTrash)
 
-const app = createApp(App).component('font-awesome-icon', FontAwesomeIcon)
+const app = createApp(App)
+.component('IconButton', IconButton)
+.component('SubmitButton', SubmitButton)
+.component('Input', Input)
+.component('font-awesome-icon', FontAwesomeIcon)
 app.use(createPinia())
 app.use(router)
 
