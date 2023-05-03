@@ -30,5 +30,7 @@ const router = createRouter({
     }
   ]
 })
-
+router.beforeEach((to, from) => {
+  document.title = to.meta?.title + ` - Meme4.Dev`
+})
 export default router
