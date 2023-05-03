@@ -1,15 +1,12 @@
 <script setup>
 import MyHeader from './components/MyHeader.vue'
+import MyFooter from './components/MyFooter.vue'
 </script>
 
 <template>
   <MyHeader />
   <RouterView />
 </template>
-
-<style scoped>
-
-</style>
 
 <script>
 export default {

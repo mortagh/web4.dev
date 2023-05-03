@@ -1,5 +1,5 @@
 <template>
-    <a href=""
+    <a
 
     class="
         group

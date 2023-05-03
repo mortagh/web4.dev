@@ -7,19 +7,30 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: HomeView
+      component: HomeView,
+      meta: {
+        title: 'Accueil',
+      }
     },
     {
       path: '/login',
       name: 'login',
-      component: () => import('../views/LoginView.vue')
+      component: () => import('../views/LoginView.vue'),
+      meta: {
+        title: 'Se connecter',
+      }
     },
     {
       path: '/creation',
       name: 'creation',
-      component: () => import('../views/CreationView.vue')
+      component: () => import('../views/CreationView.vue'),
+      meta: {
+        title: 'Créer un meme',
+      }
     }
   ]
 })
-
+router.beforeEach((to, from) => {
+  document.title = to.meta?.title + ` - Meme4.Dev`
+})
 export default router
