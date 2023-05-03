@@ -8,7 +8,7 @@
     max-w-64 max-h-64
     duration-300
     max-md:col-span-2">
-        <img :src="image" :alt="name"
+        <img @click="downloadImage(image)" :src="image" :alt="name"
         class="
         object-cover
         w-full h-full
@@ -33,7 +33,7 @@
                     <span v-for="tag in tags">{{tag}}</span>
                 </div>
             </div>
-            <IconButton icon="download"/>
+            <a download target="_blank" :href="image"><IconButton icon="download"/></a>
         </div>
 
     </div>
@@ -53,5 +53,17 @@
         };
     },
 
+}
+function downloadImage(url) {
+  fetch(url)
+    .then(response => response.blob())
+    .then(blob => {
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = url;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
 }
 </script>

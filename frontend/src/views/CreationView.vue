@@ -1,5 +1,5 @@
 <template>
-    <div class="creation">
+    <main class="pb-20">
         <h1>This is a creation page</h1>
 
         <form action="POST">
@@ -18,7 +18,7 @@
             <input type="submit" value="Créer">
         </form>
 
-    </div>
+      </main>
 </template>
 
 <script>

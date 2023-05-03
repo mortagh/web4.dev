@@ -3,7 +3,7 @@
     class="
     text-medium text-white
     bg-purple
-    w-full mt-24 py-3
+    w-full py-3
     text-center
     ">
         <p>© Copyright Meme4.dev 2023</p>

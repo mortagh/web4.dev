@@ -30,7 +30,7 @@ export default {
 </script>
 
 <template>
-  <main>
+  <main class="pb-20">
     <h1 
     class="
     font-main font-semibold text-purple text-5xl text-center
