@@ -3,7 +3,7 @@ import MemeButton from '../components/MemeButton.vue'
 import LogoutButton from '../components/LogoutButton.vue'
 import IconButton from '../components/IconButton.vue'
 import SubmitButton from '../components/SubmitButton.vue'
-import Input from '../components/Input.vue'
+import Input from '../components/MyInput.vue'
 
 //data fake
 const memes = [
@@ -13,6 +13,24 @@ const memes = [
   {name : "Meme 4", image : "https://picsum.photos/400/400"},
 ]
 
+</script>
+<script>
+export default {
+
+  beforeMount() {
+    if (window.location.href !== "http://localhost:5173/login"){
+      if(localStorage.getItem('connection') === 'false') {
+        window.location.href = "/login";
+      }
+    }
+    console.log("beforeMount")
+  },
+
+  mounted() {
+
+  }
+
+}
 </script>
 
 <template>

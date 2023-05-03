@@ -1,6 +1,6 @@
 <template>
     
-    <input type="submit" :value="name"
+    <input type="button" :value="name"
     class="
     bg-black text-white
     font-base

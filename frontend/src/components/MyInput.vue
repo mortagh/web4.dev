@@ -1,13 +1,15 @@
 <template>
 
-    <input type="text" :name="name" :id="name" :placeholder="name"
+    <input :type="type" :name="name" :id="name" :placeholder="name" v-model="value"
+    @change="$emit('input', value)" 
     class="
-    text-white
+    text-purple
     font-base
     py-2 px-3
     rounded-input border-2 border-black
     placeholder:text-purple
     focus-visible:bg-purple
+    focus-visible:text-white
     ">
 
 </template>
@@ -20,9 +22,13 @@ export default {
         name: {
             required: true
         },
+        type: {
+            default: "text"
+        }
     },
     data() {
         return {
+            value: ""
         };
     },
 
