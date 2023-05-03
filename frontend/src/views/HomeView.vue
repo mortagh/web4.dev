@@ -23,7 +23,7 @@ const memes = [
     class="memes
     w-9/12 mx-auto mt-16
     grid grid-cols-4 gap-6
-    max-md:w-4/5">
+    max-md:w-11/12">
       <MemeCard v-for="meme in memes" :key="meme.name" :name="meme.name" :image="meme.image" :tags="meme.tags"/>
     </section>
   </main>
