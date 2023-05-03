@@ -17,7 +17,7 @@ export default {
         window.location.href = "/login";
       }
     }
-    console.log("beforeMount")
+    console.log("VACHIER")
   },
 
   mounted() {
