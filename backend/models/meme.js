@@ -12,14 +12,15 @@ const Meme = db.define('meme', {
         type: Sequelize.STRING,
         allowNull: false
     },
-    tag: {
+    image: {
         type: Sequelize.STRING,
         allowNull: false
     },
-    Image: {
+    tags: {
         type: Sequelize.STRING,
         allowNull: false
     }
+
 
 });
 
