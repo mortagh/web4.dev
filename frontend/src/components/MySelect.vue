@@ -5,7 +5,7 @@
         :options="options"
         :multiple="true"
         :close-on-select="false"
-        placeholder="Tags"
+        :placeholder="placeholder"
         :openDirection="bottom"
         :searchable="false">
       </VueMultiselect>
@@ -15,11 +15,15 @@
   <script>
   import VueMultiselect from 'vue-multiselect'
   export default {
+    name: 'MySelect',
     components: { VueMultiselect },
+    props: {
+        placeholder: String
+    },
     data () {
       return {
         selected: null,
-        options: ['list', 'of', 'options']
+        options: ['tag1', 'tag2', 'tag3']
       }
     }
   }
