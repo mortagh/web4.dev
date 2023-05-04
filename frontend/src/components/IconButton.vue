@@ -1,3 +1,19 @@
+
+<script>
+export default {
+    name: 'IconButton',
+    props: {
+        icon: {
+            required: true
+        }
+    },
+    data() {
+        return {
+        };
+    },
+}
+</script>
+
 <template>
 
     <button
@@ -22,17 +38,3 @@
 
 </template>
 
-<script>
-export default {
-    name: 'IconButton',
-    props: {
-        icon: {
-            required: true
-        }
-    },
-    data() {
-        return {
-        };
-    },
-}
-</script>

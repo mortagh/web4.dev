@@ -9,8 +9,6 @@ COPY package*.json ./
 # installer les dépendances
 RUN npm install
 
-# RUN npm install tailwindcss
-
 # copier le reste des fichiers
 COPY . .
 

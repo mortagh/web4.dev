@@ -1,4 +1,4 @@
-<script setup>
+<!-- <script setup>
 import { ref } from 'vue'
 import MemeCard from '../components/MemeCard.vue'
 
@@ -9,9 +9,23 @@ const getMemes = async () => {
 }
 getMemes()
 
-</script>
+</script> -->
 <script>
+import { mapStores } from 'pinia';
+import { useMethodsStore } from '../stores/methods';
+import MemeCard from '../components/MemeCard.vue'
 export default {
+
+  name: 'HomeView'
+  ,components: {
+    MemeCard
+  },
+
+  data() {
+    return {
+      memes : [],
+    };
+  },
 
   beforeMount() {
     if (window.location.href !== "http://localhost:5173/login"){
@@ -21,12 +35,17 @@ export default {
     }
     console.log("beforeMount")
   },
+  mounted(){
+    this.methodsStore.getMemes()
+    console.log(this.methodsStore.getMemes())
+  },
 
-  mounted() {
+  computed:{
+    ...mapStores(useMethodsStore)
+  },
 
   }
 
-}
 </script>
 
 <template>
@@ -42,7 +61,7 @@ export default {
     w-9/12 mx-auto mt-16
     grid grid-cols-4 gap-6
     max-md:w-11/12">
-      <MemeCard v-for="meme in memes" :key="meme.name" :name="meme.name" :image="meme.image" :tags="meme.tags"/>
+      <MemeCard v-for="meme in memes" :key="meme.name" :name="meme.name" :image="meme.image" :tags="meme.tags" :id="meme.id"/>
     </section>
   </main>
 </template>

@@ -14,7 +14,7 @@
         w-full h-full
         rounded-main">
 
-        <IconButton icon="trash" class="absolute right-3 top-3 max-md:right-1 max-md:top-1"/>
+        <IconButton @click="deleteMeme(this.id)" icon="trash" class="absolute right-3 top-3 max-md:right-1 max-md:top-1"/>
 
         <div class="
         absolute bottom-0
@@ -46,12 +46,31 @@
     props: {
         name: String,
         image: String,
+        id: Number,
         tags: Array
     },
     data() {
         return {
         };
     },
+
+    methods:{
+
+        deleteMeme(id) {
+        fetch('http://localhost:3000/memes/delete/' + id, {
+            method: 'DELETE'
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    }
+
+    }
+
 
 }
 </script>
