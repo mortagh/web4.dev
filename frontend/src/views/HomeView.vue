@@ -1,13 +1,13 @@
 <script setup>
+import { ref } from 'vue'
 import MemeCard from '../components/MemeCard.vue'
 
-//data fake
-const memes = [
-  {name : "Meme 1", image : "https://picsum.photos/400/400", tags : ["tag1", "tag2"]},
-  {name : "Meme 2", image : "https://picsum.photos/400/400", tags : ["tag1", "tag2"]},
-  {name : "Meme 3", image : "https://picsum.photos/400/400", tags : ["tag1", "tag2"]},
-  {name : "Meme 4", image : "https://picsum.photos/400/400", tags : ["tag1", "tag2"]},
-]
+const memes = ref([])
+const getMemes = async () => {
+  const response = await fetch('http://localhost:3000/memes')
+  memes.value = await response.json()
+}
+getMemes()
 
 </script>
 <script>
