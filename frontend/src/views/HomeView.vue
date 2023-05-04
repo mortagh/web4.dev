@@ -15,7 +15,7 @@ export default {
 
   beforeMount() {
     if (window.location.href !== "http://localhost:5173/login"){
-      if(localStorage.getItem('connection') === 'false') {
+      if(localStorage.getItem('connection') !== 'true') {
         window.location.href = "/login";
       }
     }
