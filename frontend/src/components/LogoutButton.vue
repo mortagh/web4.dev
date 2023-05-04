@@ -1,6 +1,6 @@
 <template>
     <a
-
+    @click="logout"
     class="
         group
         bg-white text-black
@@ -27,3 +27,15 @@
          :icon="['fas', 'right-from-bracket']" />
     </a>
 </template>
+
+<script>
+    export default {
+        name: 'LogoutButton',
+        methods: {
+            logout() {
+                localStorage.setItem("connection", false);
+                window.location.href = "/login";
+            }
+        }
+    }
+</script>
