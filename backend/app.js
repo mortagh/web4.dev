@@ -3,6 +3,7 @@ const app = express()
 const cors = require('cors')
 const db = require('./db/db')
 const meme = require('./models/meme')
+const user = require('./models/user')
 
 require('dotenv').config();
 
