@@ -33,7 +33,7 @@
                     <span v-for="tag in tags">{{tag}}</span>
                 </div>
             </div>
-            <a download target="_blank" :href="image"><IconButton icon="download"/></a>
+            <a download :href="image"><IconButton icon="download"/></a>
         </div>
 
     </div>
