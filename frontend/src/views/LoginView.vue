@@ -33,7 +33,6 @@ export default {
     },
     data() {
         return {
-            connection: false,
             admin: {
                 username: "",
                 password: ""
@@ -45,11 +44,10 @@ export default {
 
         login() {
             if (this.admin.username === "admin" && this.admin.password === "admin") {
-                this.connection = true;
                 localStorage.setItem("connection", true);
                 window.location.href = "/";
             } else {
-                alert("Invalid username or password");
+                alert("DEGAGE T'ES PAS ADMIN");
             }
         },
     },
