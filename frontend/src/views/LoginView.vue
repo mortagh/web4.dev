@@ -11,11 +11,11 @@
             <div
             class="
             flex">
-                <img class="w-1/3 max-md:hidden" src="/public/illustration2.svg" alt="illustration">
+                <img class="w-1/3 max-md:hidden self-end" src="/public/illustration2.svg" alt="illustration">
                 <form class="
-                flex flex-col w-2/3 gap-8 px-12 pt-4 
+                flex flex-col w-2/3 gap-8 px-12 pt-4 pb-6
                 max-md:w-full max-md:px-8 max-md:pt-2">
-                    <MyInput name="name" placeholder="Utilisateur" v-model="admin.username"/> 
+                    <MyInput name="user" placeholder="Utilisateur" v-model="admin.username"/> 
                     <MyInput name="password" placeholder="Mot de passe" type="password" v-model="admin.password"/>
                     <SubmitButton name="Se connecter" @click="login()"/>
                 </form>
@@ -27,15 +27,9 @@
 </template>
 
 <script>
-import SubmitButton from "@/components/SubmitButton.vue"
-import MyInput from "@/components/MyInput.vue"
 
 export default {
     name: 'LoginView',
-    components: {
-        SubmitButton,
-        MyInput
-    },
     data() {
         return {
             admin: {

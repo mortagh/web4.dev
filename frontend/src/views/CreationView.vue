@@ -1,28 +1,38 @@
 <template>
     <main class="pb-20">
-        <h1>This is a creation page</h1>
-
-        <form action="POST">
-            <label for="name">Nom</label>
-            <input type="text" name="name" id="name">
-
-            <label for="image">Image</label>
-            <input type="text" name="image" id="image">
-
-            <label for="top-text">Texte du haut</label>
-            <input type="text" name="top-text" id="top-text">
-
-            <label for="bottom-text">Texte du bas</label>
-            <input type="text" name="bottom-text" id="bottom-text">
-
-            <input type="submit" value="Créer">
-        </form>
-
+      <section
+        class="
+        flex flex-col
+        bg-purple
+        rounded-main
+        w-3/5 mx-auto p-8 pb-0
+        max-md:w-4/5 max-md:p-4  max-md:pb-8">
+          <h1 class="font-main font-semibold text-white text-5xl text-center mb-12 max-md:mb-8">Créer un meme</h1>
+          <div
+          class="
+          flex relative">
+            <form class="
+            flex flex-col w-2/3 gap-8 px-12 pt-4 pb-6
+            max-md:w-full max-md:px-8 max-md:pt-2">
+              <MyInput name="name" placeholder="Nom"/>
+              <MyInput name="image" placeholder="image" type="file"/>
+              <MyInput name="text-top" placeholder="Texte du haut"/>
+              <MyInput name="text-bottom" placeholder="Texte du bas"/>
+              <MySelect/>
+              <SubmitButton name="Créer"/>
+            </form>
+            <img class="w-1/3 max-md:hidden self-end" src="/public/illustration1.svg" alt="illustration">
+          </div>
+        </section>
       </main>
 </template>
 
 <script>
+import MySelect from '../components/MySelect.vue';
 export default {
+    components: {
+      MySelect
+    },
 
     beforeMount() {
       if (window.location.href !== "http://localhost:5173/login"){

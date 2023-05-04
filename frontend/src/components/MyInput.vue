@@ -1,6 +1,6 @@
 <template>
 
-    <input :type="type" :name="name" :id="name" :placeholder="placeholder" v-model="value"
+    <input required :type="type" :name="name" :id="name" :placeholder="placeholder" v-model="value"
     @change="$emit('input', value)" 
     class="
     text-purple
@@ -17,7 +17,7 @@
 <script>
 
 export default {
-    name: 'Input',
+    name: 'MyInput',
     props: {
         name: {
             required: true,

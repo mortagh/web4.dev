@@ -6,7 +6,7 @@ import router from './router'
 
 import IconButton from './components/IconButton.vue'
 import SubmitButton from './components/SubmitButton.vue'
-import Input from './components/MyInput.vue'
+import MyInput from './components/MyInput.vue'
 
 import './assets/main.css'
 
@@ -23,7 +23,7 @@ library.add(faPlus, faRightFromBracket, faDownload, faTrash)
 const app = createApp(App)
 .component('IconButton', IconButton)
 .component('SubmitButton', SubmitButton)
-.component('Input', Input)
+.component('MyInput', MyInput)
 .component('font-awesome-icon', FontAwesomeIcon)
 app.use(createPinia())
 app.use(router)
