@@ -1,14 +1,24 @@
 <template>
-    <div class="pb-20">
-        <h1>This is a login page</h1>
+    <main class="pb-20">
+        <section
+        class="
+        flex flex-col
+        bg-purple
+        rounded-main
+        w-3/5 mx-auto p-8">
+            <h1>Connexion</h1>
+            <div>
+                <img src="/public/illustration2.svg" alt="illustration">
+                <form>
+                    <MyInput name="name" placeholder="Utilisateur" v-model="admin.username"/> 
+                    <MyInput name="password" placeholder="Mot de passe" type="password" v-model="admin.password"/>
+                    <SubmitButton name="Se connecter" @click="login()"/>
+                </form>
+            </div>
 
-        <form>
-            <MyInput name="name" v-model="admin.username"/> 
-            <MyInput name="password" type="password" v-model="admin.password"/>
-            <SubmitButton name="login" @click="login()"/>
-        </form>
+        </section>
 
-    </div>
+    </main>
 </template>
 
 <script>

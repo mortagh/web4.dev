@@ -1,6 +1,6 @@
 <template>
 
-    <input :type="type" :name="name" :id="name" :placeholder="name" v-model="value"
+    <input :type="type" :name="name" :id="name" :placeholder="placeholder" v-model="value"
     @change="$emit('input', value)" 
     class="
     text-purple
@@ -20,11 +20,14 @@ export default {
     name: 'Input',
     props: {
         name: {
-            required: true
+            required: true,
+            type: String
         },
         type: {
-            default: "text"
-        }
+            default: "text",
+            type: String
+        },
+        placeholder: String
     },
     data() {
         return {
