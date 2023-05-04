@@ -7,7 +7,7 @@ import LogoutButton from './LogoutButton.vue'
   <header
   class="
   bg-white shadow-main
-  py-2 px-16 mb-6
+  py-2 px-16 mb-12
   w-full
   flex justify-center items-center
   relative

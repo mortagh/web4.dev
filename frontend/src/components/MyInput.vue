@@ -6,7 +6,7 @@
     text-purple
     font-base
     py-2 px-3
-    rounded-input border-2 border-black
+    rounded-input border-2 border-black outline-none
     placeholder:text-purple
     focus-visible:bg-purple
     focus-visible:text-white
