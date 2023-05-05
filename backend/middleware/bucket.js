@@ -1,6 +1,7 @@
 const multer = require("multer");
 const multerS3 = require("multer-s3");
 const AWS = require("aws-sdk");
+const Jimp = require('jimp');
 
 require("dotenv").config();
 
@@ -44,9 +45,9 @@ const upload = multer({
     try {
       const image = await Jimp.read(req.file.buffer);
       console.log(image);
-      Jimp.loadFont("./font/Roboto-Regular.fnt").then((font) => {
-        image.print(font, xtop, ytop, "texte du haut");
-        image.print(font, xbottom, ybottom, "texte du bas");
+      Jimp.loadFont(Jimp.FONT_SANS_32_WHITE).then((font) => {
+        image.print(font, 10, 0, "texte du haut");
+        image.print(font, 10, 10, "texte du bas");
       });
       image.convert("jpeg");
       req.file.buffer = await image.getBufferAsync(Jimp.MIME_JPEG);

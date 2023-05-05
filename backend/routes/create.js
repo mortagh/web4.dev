@@ -1,6 +1,5 @@
 const express = require("express");
 const upload = require('../middleware/bucket');
-const Jimp = require('jimp');
 
 const app = express();
 
