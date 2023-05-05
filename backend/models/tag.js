@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const db = require('../db/db')
+const Meme = require('./meme');
 
 const Tag = db.define('tag', {
     id: {
@@ -10,9 +11,17 @@ const Tag = db.define('tag', {
     name: {
         type: Sequelize.STRING,
         allowNull: false
+    },
+    memeId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+            model: Meme,
+            key: 'id'
+        }
     }
-
 });
 
+Tag.belongsTo(Meme, { foreignKey: 'memeId' });
+
 module.exports = Tag;
-    

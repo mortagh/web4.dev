@@ -1,6 +1,6 @@
-//import datatypes from sequelize
 const Sequelize = require('sequelize');
 const db = require('../db/db')
+const Tag = require('./tag');
 
 const Meme = db.define('meme', {
     id: {
@@ -15,13 +15,9 @@ const Meme = db.define('meme', {
     image: {
         type: Sequelize.STRING,
         allowNull: false
-    },
-    tags: {
-        type: Sequelize.STRING,
-        allowNull: false
     }
-
-
 });
+
+Meme.hasMany(Tag, { foreignKey: 'memeId' });
 
 module.exports = Meme;
