@@ -14,7 +14,6 @@ router.get('/', (req, res) => {
 }); 
 
 
-router.use(bodyParser.json())
 router.post('/', (req, res) => {
   const { name } = req.body; 
   console.log(req.body);
