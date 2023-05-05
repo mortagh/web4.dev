@@ -15,10 +15,6 @@ const User = db.define('user', {
         type: Sequelize.STRING,
         allowNull: false
     },
-    test: {
-        type:Sequelize.STRING,
-        allowNull:true
-    }
 
 });
 
