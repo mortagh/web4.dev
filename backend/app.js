@@ -4,6 +4,7 @@ const cors = require('cors')
 const db = require('./db/db')
 const meme = require('./models/meme')
 const user = require('./models/user')
+const tag = require('./models/tag')
 
 require('dotenv').config();
 
