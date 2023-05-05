@@ -14,13 +14,15 @@ const upload = require('./middleware/bucket')
 const memesRouter = require("./routes/memes");
 const deleteRouter = require("./routes/delete");
 const createRouter = require("./routes/create");
-const TagsRouter = require("./routes/tags");
+const tagsRouter = require("./routes/tags");
+const authRouter = require("./routes/authenticate");
 
 app.use(cors())
 app.use('/memes', memesRouter);
 app.use('/memes/delete', deleteRouter);
 app.use('/memes/create', createRouter);
-app.use('/tags', TagsRouter);
+app.use('/tags', tagsRouter);
+app.use('/auth', authRouter);
 
 
 db.sync()
