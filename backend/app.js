@@ -5,6 +5,7 @@ const db = require('./db/db')
 const meme = require('./models/meme')
 const user = require('./models/user')
 const tag = require('./models/tag')
+const memeTag = require('./models/meme-tag')
 
 require('dotenv').config();
 

@@ -20,9 +20,8 @@ const Tag = db.define('tags', {
 
 Tag.associate = function (Tag) {
     Tag.belongsToMany(Meme, {
-        through: 'MemeTag',
-        foreignKey: 'tagId',
-        otherKey: 'memeId',
+        through: 'meme_tag',
+        foreignKey: 'tag_id',
         as: 'memes'
     });
 }

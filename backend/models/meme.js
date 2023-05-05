@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const db = require('../db/db');
 const Tag = require('./tag');
 
-const Meme = db.define('meme', {
+const Meme = db.define('memes', {
     id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -20,9 +20,8 @@ const Meme = db.define('meme', {
 
 Meme.associate = function (Meme) {
     Meme.belongsToMany(Tag, {
-        through: 'MemeTag',
-        foreignKey: 'memeId',
-        otherKey: 'tagId',
+        through: 'meme_tag',
+        foreignKey: 'meme_id',
         as: 'tags'
     });
 }
