@@ -41,36 +41,26 @@
 </template>
 
 <script>
-    export default {
-    name: 'MemeCard',
-    props: {
-        name: String,
-        image: String,
-        id: Number,
-        tags: Array
+import IconButton from './IconButton.vue';
+
+export default {
+  name: 'MemeCard',
+  props: {
+    name: String,
+    image: String,
+    id: Number,
+    tags: Array,
+    meme: Object,
+    deleteMeme: Function,
+  },
+  components: {
+    IconButton,
+  },
+  methods: {
+    async deleteMeme() {
+      await fetch(`http://localhost:3000/memes/delete/${this.id}`, { method: 'DELETE' });
+      this.$emit('deleteMeme', this.id);
     },
-    data() {
-        return {
-        };
-    },
-
-    methods:{
-
-        deleteMeme(id) {
-        fetch('http://localhost:3000/memes/delete/' + id, {
-            method: 'DELETE'
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-    }
-
-    }
-
-
-}
+  },
+};
 </script>
