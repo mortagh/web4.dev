@@ -27,6 +27,14 @@ const router = createRouter({
       meta: {
         title: 'Créer un meme',
       }
+    },
+    {
+      path: '/tag',
+      name: 'tag',
+      component: () => import('../views/CreationTagView.vue'),
+      meta: {
+        title: 'Ajouter un tag',
+      }
     }
   ]
 })

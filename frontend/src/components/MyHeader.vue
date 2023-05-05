@@ -1,6 +1,7 @@
 <script setup>
 import MemeButton from './MemeButton.vue'
 import LogoutButton from './LogoutButton.vue'
+import TagButton from './TagButton.vue'
 </script>
 
 <template>
@@ -22,6 +23,7 @@ import LogoutButton from './LogoutButton.vue'
     absolute right-16
     max-md:relative max-md:right-0">
       <MemeButton/>
+      <TagButton/>
       <LogoutButton/>
     </nav>
   </header>
