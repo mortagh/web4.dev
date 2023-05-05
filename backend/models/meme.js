@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const db = require('../db/db')
+const db = require('../db/db');
 const Tag = require('./tag');
 
 const Meme = db.define('meme', {
@@ -18,8 +18,13 @@ const Meme = db.define('meme', {
     }
 });
 
-Meme.associate = function () {
-    Meme.hasMany(Tag, { as: 'tags' });
-};
+Meme.associate = function (Meme) {
+    Meme.belongsToMany(Tag, {
+        through: 'MemeTag',
+        foreignKey: 'memeId',
+        otherKey: 'tagId',
+        as: 'tags'
+    });
+}
 
 module.exports = Meme;
