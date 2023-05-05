@@ -24,18 +24,14 @@
 </template>
 <script>
 export default {
-    beforeMount() {
-      if (window.location.href !== "http://localhost:5173/login"){
-        if(localStorage.getItem('connection') !== 'true') {
-          window.location.href = "/login";
-        }
-      }
-      console.log("beforeMount")
-    },
-  
-    mounted() {
-  
+beforeMount() {
+  if (this.$route.path !== "/login") {
+    if (localStorage.getItem('connection') !== 'true') {
+      this.$router.push({ path: '/login' });
     }
+  }
+},
+  
   
   }
   </script>

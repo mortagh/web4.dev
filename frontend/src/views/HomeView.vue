@@ -54,12 +54,14 @@ export default {
     }
   },
 
-  async created() {
-    if (window.location.href !== 'http://localhost:5173/login') {
-      if (!localStorage.getItem('connection')) {
-        window.location.href = '/login';
+  beforeMount() {
+    if (this.$route.path !== "/login") {
+      if (localStorage.getItem('connection') !== 'true') {
+        this.$router.push({ path: '/login' });
       }
     }
+  },
+  async created() {
     await this.getMemes();
   },
 };

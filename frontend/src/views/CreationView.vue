@@ -36,14 +36,13 @@ export default {
       FileInput
     },
 
-    beforeMount() {
-      if (window.location.href !== "http://localhost:5173/login"){
-        if(localStorage.getItem('connection') !== 'true') {
-          window.location.href = "/login";
-        }
-      }
-      console.log("beforeMount")
-    },
+beforeMount() {
+  if (this.$route.path !== "/login") {
+    if (localStorage.getItem('connection') !== 'true') {
+      this.$router.push({ path: '/login' });
+    }
+  }
+},
   
     mounted() {
   

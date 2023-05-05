@@ -44,7 +44,7 @@ export default {
         login() {
             if (this.admin.username === "admin" && this.admin.password === "admin") {
                 localStorage.setItem("connection", true);
-                window.location.href = "/";
+                this.$router.push({ path: '/' });
             } else {
                 alert("DEGAGE T'ES PAS ADMIN");
             }
