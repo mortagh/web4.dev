@@ -1,6 +1,7 @@
 <template>
     <div>
       <VueMultiselect
+        required
         v-model="selected"
         :options="tags"
         :multiple="true"

@@ -1,7 +1,7 @@
 <template>
     <div>
         <label class="block mb-2 text-base text-white" for="file_input">{{name}}</label>
-        <input
+        <input required
         class="block w-full
         text-purple font-base bg-white
         px-3 pl-0
