@@ -22,9 +22,18 @@
             <SubmitButton name="Ajouter" @click="addTag()" />
           </form>
           <table class="w-3/5 text-black mt-4">
-            <tr v-for="tag in tags" :key="tag.name" class="border-b-2 border-black">
-              <td class="pl-4 py-1 w-11/12">{{tag.name}}</td>
-              <td @click="deleteTag(tag.id)" class="pr-4 hover:text-white cursor-pointer"><font-awesome-icon :icon="['fas', 'trash']" /></td>
+            <tr
+              v-for="tag in tags"
+              :key="tag.name"
+              class="border-b-2 border-black"
+            >
+              <td class="pl-4 py-1 w-11/12">{{ tag.name }}</td>
+              <td
+                @click="deleteTag(tag.id)"
+                class="pr-4 hover:text-white cursor-pointer"
+              >
+                <font-awesome-icon :icon="['fas', 'trash']" />
+              </td>
             </tr>
           </table>
         </div>
@@ -42,24 +51,22 @@ export default {
       tag: {
         name: "",
       },
-      tags: []
+      tags: [],
     };
   },
   methods: {
-
-      async getTag() {
-        const response = await myFetch("http://localhost:3000/tags");
-        const tags = await response.json();
-        this.tags = tags;
-      },
-
     addTag() {
       const data = {
         name: this.tag.name,
       };
 
+      if (!data.name) {
+        alert("Veuillez remplir tous les champs");
+        return;
+      }
+
       // Envoyez la requête POST pour ajouter le tag
-      fetch("http://localhost:3000/tags", {
+      myFetch("http://localhost:3000/tags", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -72,6 +79,7 @@ export default {
           }
           // Réinitialisez le formulaire
           this.tag.name = "";
+          this.getTags();
         })
         .catch((error) => {
           console.error(error);
@@ -79,20 +87,22 @@ export default {
           alert("Erreur lors de la création du tag");
         });
     },
-    async deleteTag(id) {
-      await fetch(`http://localhost:3000/tags/${id}`, { method: "DELETE" });
-      this.getTags();
-    },
 
     async getTags() {
-      const response = await fetch(`http://localhost:3000/tags`, { method: "GET" });
+      const response = await myFetch("http://localhost:3000/tags");
       const tags = await response.json();
       this.tags = tags;
-    }
+    },
+    async deleteTag(id) {
+      const response = await myFetch(`http://localhost:3000/tags/${id}`, {
+        method: "DELETE",
+      });
+      this.getTags();
+    },
   },
 
   async created() {
-    await this.getTag();
+    await this.getTags();
   },
 };
 </script>
