@@ -30,13 +30,66 @@
 <script>
 import MySelect from '../components/MySelect.vue';
 import FileInput from '../components/FileInput.vue';
+import MyInput from '../components/MyInput.vue';
+import SubmitButton from '../components/SubmitButton.vue';
+import { myFetch } from '../composable/http';
 export default {
     components: {
       MySelect,
-      FileInput
+      FileInput,
+      MyInput,
+      SubmitButton,
     },
 
+    data() {
+      return {
+        meme: {
+          name: "",
+          image: "",
+          textTop: "",
+          textBottom: "",
+          tags: [],
+        },
+      };
+    },
 
-  
-  }
-  </script>
+    methods: {
+      async getTags() {
+        const response = await myFetch("http://localhost:3000/tags");
+        const tags = await response.json();
+        this.tags = tags;
+      },
+
+      async addMeme() {
+        const data = {
+          name: this.meme.name,
+          image: this.meme.image,
+          textTop: this.meme.textTop,
+          textBottom: this.meme.textBottom,
+          tags: this.meme.tags,
+        };
+
+        // Envoyez la requête POST pour ajouter le meme
+        fetch("http://localhost:3000/memes", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+          .then((response) => {
+            if (response.ok) {
+              this.$router.push({ path: "/memes" });
+            }
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      },
+    },
+
+    created() {
+      this.getTags();
+    },
+  };
+</script>
