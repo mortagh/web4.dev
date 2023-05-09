@@ -1,30 +1,32 @@
 <template>
-    <main class="pb-20">
-      <section
-        class="
-        flex flex-col
-        bg-purple
-        rounded-main
-        w-3/5 mx-auto p-8 pb-0
-        max-md:w-4/5 max-md:p-4  max-md:pb-8">
-          <h1 class="font-main font-semibold text-white text-5xl text-center mb-12 max-md:mb-8">Créer un meme</h1>
-          <div
-          class="
-          flex relative">
-            <form class="
-            flex flex-col w-2/3 gap-8 px-12 pt-4 pb-6
-            max-md:w-full max-md:px-8 max-md:pt-2">
-              <MyInput name="name" placeholder="Nom"/>
-              <FileInput name="Image"/>
-              <MyInput name="text-top" placeholder="Texte du haut"/>
-              <MyInput name="text-bottom" placeholder="Texte du bas"/>
-              <MySelect placeholder="Tags"/>
-              <SubmitButton name="Créer"/>
-            </form>
-            <img class="w-1/3 max-md:hidden self-end" src="/public/illustration1.svg" alt="illustration">
-          </div>
-        </section>
-      </main>
+  <main class="pb-20">
+    <section
+      class="flex flex-col bg-purple rounded-main w-3/5 mx-auto p-8 pb-0 max-md:w-4/5 max-md:p-4 max-md:pb-8"
+    >
+      <h1
+        class="font-main font-semibold text-white text-5xl text-center mb-12 max-md:mb-8"
+      >
+        Créer un meme
+      </h1>
+      <div class="flex relative">
+        <form
+          class="flex flex-col w-2/3 gap-8 px-12 pt-4 pb-6 max-md:w-full max-md:px-8 max-md:pt-2"
+        >
+          <MyInput name="name" placeholder="Nom" />
+          <FileInput name="Image" />
+          <MyInput name="text-top" placeholder="Texte du haut" />
+          <MyInput name="text-bottom" placeholder="Texte du bas" />
+          <MySelect placeholder="Tags" />
+          <SubmitButton name="Créer" />
+        </form>
+        <img
+          class="w-1/3 max-md:hidden self-end"
+          src="/public/illustration1.svg"
+          alt="illustration"
+        />
+      </div>
+    </section>
+  </main>
 </template>
 
 <script>
