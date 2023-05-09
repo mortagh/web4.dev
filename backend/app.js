@@ -17,12 +17,15 @@ const deleteRouter = require("./routes/delete");
 const createRouter = require("./routes/create");
 const tagsRouter = require("./routes/tags");
 const authRouter = require("./routes/authenticate");
+const auth = require('./middleware/auth')
+const bodyParser = require('body-parser');
 
+app.use(bodyParser.json());
 app.use(cors())
-app.use('/memes', memesRouter);
-app.use('/memes/delete', deleteRouter);
-app.use('/memes/create', createRouter);
-app.use('/tags', tagsRouter);
+app.use('/memes', auth.verifyToken, memesRouter);
+app.use('/memes/delete',auth.verifyToken, deleteRouter);
+app.use('/memes/create',auth.verifyToken, createRouter);
+app.use('/tags',auth.verifyToken, tagsRouter);
 app.use('/auth', authRouter);
 
 

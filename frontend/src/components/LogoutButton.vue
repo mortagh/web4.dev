@@ -33,8 +33,8 @@
         name: 'LogoutButton',
         methods: {
             logout() {
-                localStorage.setItem("connection", false);
-                window.location.href = "/login";
+                localStorage.removeItem('token');
+                this.$router.push({ name: 'LoginView' });
             }
         }
     }

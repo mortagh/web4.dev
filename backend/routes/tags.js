@@ -4,7 +4,6 @@ const { dbConnect } = require('../module');
 const bodyParser = require('body-parser');
 
 
-router.use(bodyParser.json());
 router.get('/', (req, res) => {
     const connection = dbConnect();
     const sql = "SELECT * FROM tags";
