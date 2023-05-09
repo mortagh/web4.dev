@@ -8,7 +8,7 @@
         :placeholder="placeholder"
         :openDirection="bottom"
         :searchable="false"
-        label="name" track-by="name">
+        label="name">
       </VueMultiselect>
     </div>
   </template>
