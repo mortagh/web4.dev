@@ -49,19 +49,19 @@ export default {
 
   methods: {
     async login() {
-        
-      // Récupérer les comptes d'utilisateurs depuis la route "/auth"
-      const response = await fetch("http://localhost:3000/auth");
-      const accounts = await response.json();
 
-      // Vérifier si les informations d'identification sont valides
-      const { username, password } = this.admin;
-      const matchingAccount = accounts.find(
-        (account) =>
-          account.username === username && account.password === password
-      );
-      if (matchingAccount) {
-        localStorage.setItem("connection", true);
+      // Récupérer les comptes d'utilisateurs depuis la route "/auth"
+      const response = await fetch("http://localhost:3000/auth", {
+        method: "POST",
+        body: JSON.stringify(this.admin),
+        headers: {
+          "Content-Type": "application/json",
+        }
+      });
+
+      if (response.status === 200) {
+        const body = await response.json();
+        localStorage.setItem("token", body.token);
         this.$router.push({ path: '/' });
 
       } else {

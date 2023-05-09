@@ -4,8 +4,11 @@ const { dbConnect } = require('../module');
 const bodyParser = require('body-parser');
 
 
+<<<<<<< HEAD
 router.use(bodyParser.json());
 
+=======
+>>>>>>> 82488f0cc68a35e2becc5eb8f5fd2d49f02aa26e
 router.get('/', (req, res) => {
     const connection = dbConnect();
     const sql = "SELECT * FROM tags";

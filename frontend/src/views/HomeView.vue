@@ -31,6 +31,8 @@
 
 <script>
 import MemeCard from '../components/MemeCard.vue';
+import { myFetch } from '../composable/http';
+
 
 export default {
   name: 'HomeView',
@@ -48,21 +50,16 @@ export default {
     },
 
     async getMemes() {
-      const response = await fetch('http://localhost:3000/memes');
+      const response = await myFetch('http://localhost:3000/memes');
       const memes = await response.json();
       this.memes = memes;
     }
   },
 
-  beforeMount() {
-    if (this.$route.path !== "/login") {
-      if (localStorage.getItem('connection') !== 'true') {
-        this.$router.push({ path: '/login' });
-      }
-    }
-  },
   async created() {
     await this.getMemes();
   },
 };
 </script>
+
+

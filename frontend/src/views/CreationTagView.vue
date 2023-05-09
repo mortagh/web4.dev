@@ -33,6 +33,8 @@
   </main>
 </template>
 <script>
+import { myFetch } from "../composable/http";
+
 export default {
   name: "CreationTagView",
   data() {
@@ -44,6 +46,13 @@ export default {
     };
   },
   methods: {
+
+      async getTag() {
+        const response = await myFetch("http://localhost:3000/tags");
+        const tags = await response.json();
+        this.tags = tags;
+      },
+
     addTag() {
       const data = {
         name: this.tag.name,
@@ -81,12 +90,9 @@ export default {
       this.tags = tags;
     }
   },
-  beforeMount() {
-    if (this.$route.path !== "/login") {
-      if (localStorage.getItem("connection") !== "true") {
-        this.$router.push({ path: "/login" });
-      }
-    }
+
+  async created() {
+    await this.getTag();
   },
   async created() {
     await this.getTags();

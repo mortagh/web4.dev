@@ -3,6 +3,7 @@ const meme = require("./meme");
 const tag = require("./tag");
 const user = require("./user");
 const db = require("../db/db");
+const bcryptjs = require("bcryptjs")
 
 const models = {
   meme,
@@ -27,7 +28,7 @@ db.sync().then(async () => {
   if (!admin) {
     await user.create({
       username: "admin",
-      password: "admin",
+      password: bcryptjs.hashSync("admin"),
     });
   }
 });
