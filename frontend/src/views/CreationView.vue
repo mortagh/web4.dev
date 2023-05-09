@@ -12,11 +12,11 @@
         <form
           class="flex flex-col w-2/3 gap-8 px-12 pt-4 pb-6 max-md:w-full max-md:px-8 max-md:pt-2"
         >
-          <MyInput name="name" placeholder="Nom" />
-          <FileInput name="Image" />
-          <MyInput name="text-top" placeholder="Texte du haut" />
-          <MyInput name="text-bottom" placeholder="Texte du bas" />
-          <MySelect placeholder="Tags" />
+          <MyInput name="name" placeholder="Nom" v-model="meme.name"/>
+          <FileInput name="Image" v-model="meme.image"/>
+          <MyInput name="text-top" placeholder="Texte du haut" v-model="meme.textTop"/>
+          <MyInput name="text-bottom" placeholder="Texte du bas" v-model="meme.textBottom"/>
+          <MySelect placeholder="Tags" :tags="tags" v-model="meme.tags"/>
           <SubmitButton name="Créer" />
         </form>
         <img
@@ -52,6 +52,7 @@ export default {
           textBottom: "",
           tags: [],
         },
+        tags: []
       };
     },
 

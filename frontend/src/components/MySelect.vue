@@ -2,12 +2,13 @@
     <div>
       <VueMultiselect
         v-model="selected"
-        :options="options"
+        :options="tags"
         :multiple="true"
         :close-on-select="false"
         :placeholder="placeholder"
         :openDirection="bottom"
-        :searchable="false">
+        :searchable="false"
+        label="name" track-by="name">
       </VueMultiselect>
     </div>
   </template>
@@ -18,12 +19,12 @@
     name: 'MySelect',
     components: { VueMultiselect },
     props: {
-        placeholder: String
+        placeholder: String,
+        tags: Array
     },
     data () {
       return {
-        selected: null,
-        options: ['tag1', 'tag2', 'tag3']
+        selected: []
       }
     }
   }
