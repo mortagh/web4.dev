@@ -2,10 +2,11 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const db = require('./db/db')
-const meme = require('./models/meme')
-const user = require('./models/user')
-const tag = require('./models/tag')
-const memeTag = require('./models/meme-tag')
+
+//import models sequelize
+require ('./models') 
+
+
 
 require('dotenv').config();
 
@@ -39,3 +40,4 @@ const port = process.env.API_PORT || 3000;
 app.listen(port, () => {
     console.log(`Serveur démarré sur http://localhost:${port}`)
 });
+

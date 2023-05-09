@@ -18,8 +18,8 @@ const Tag = db.define('tags', {
     updatedAt: false,
 });
 
-Tag.associate = function (Tag) {
-    Tag.belongsToMany(Meme, {
+Tag.associate = function (models) {
+    Tag.belongsToMany(models.meme, {
         through: 'meme_tag',
         foreignKey: 'tag_id',
         as: 'memes'

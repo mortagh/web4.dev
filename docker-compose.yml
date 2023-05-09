@@ -19,6 +19,8 @@ services:
       - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: example
+      # créer une database express_meme
+      MYSQL_DATABASE: express_meme
     networks:
       - net
     volumes:

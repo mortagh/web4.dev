@@ -18,8 +18,8 @@ const Meme = db.define('memes', {
     }
 });
 
-Meme.associate = function (Meme) {
-    Meme.belongsToMany(Tag, {
+Meme.associate = function (models) {
+    Meme.belongsToMany(models.tag, {
         through: 'meme_tag',
         foreignKey: 'meme_id',
         as: 'tags'
