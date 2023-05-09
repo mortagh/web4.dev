@@ -36,17 +36,7 @@ export default {
       FileInput
     },
 
-beforeMount() {
-  if (this.$route.path !== "/login") {
-    if (localStorage.getItem('connection') !== 'true') {
-      this.$router.push({ path: '/login' });
-    }
-  }
-},
-  
-    mounted() {
-  
-    }
+
   
   }
   </script>
