@@ -45,7 +45,7 @@ export default {
 
   methods: {
     async deleteMeme(id) {
-      await fetch(`http://localhost:3000/memes/delete/${id}`, { method: "DELETE" });
+      await myFetch(`http://localhost:3000/memes/delete/${id}`, { method: "DELETE" });
       this.getMemes();
     },
 
