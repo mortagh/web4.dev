@@ -22,7 +22,7 @@
             <SubmitButton name="Ajouter" @click="addTag()" />
           </form>
           <table class="w-3/5 text-black mt-4">
-            <tr v-for="tag in tags" class="border-b-2 border-black">
+            <tr v-for="tag in tags" :key="tag.name" class="border-b-2 border-black">
               <td class="pl-4 py-1 w-11/12">{{tag.name}}</td>
               <td @click="deleteTag(tag.id)" class="pr-4 hover:text-white cursor-pointer"><font-awesome-icon :icon="['fas', 'trash']" /></td>
             </tr>
