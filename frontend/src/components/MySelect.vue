@@ -61,9 +61,6 @@
         color: #6300FF;
         width: 100%;
     }
-    .multiselect__element {
-        padding: 0 12px;
-    }
     .multiselect__element:hover {
         background: #6300FF;
         color: white;
@@ -91,5 +88,13 @@
         margin-bottom: 2px;
         bottom: 1.5px;
         cursor: pointer;
+    }
+    span.multiselect__option {
+        padding: 0 10px;
+        
+    }
+    span.multiselect__option--selected {
+        background: #171717;
+        color: white;
     }
 </style>
