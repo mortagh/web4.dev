@@ -9,12 +9,4 @@ import MyFooter from './components/MyFooter.vue'
   <MyFooter />
 </template>
 
-<script>
-export default {
 
-  mounted() {
-
-  }
-
-}
-</script>
