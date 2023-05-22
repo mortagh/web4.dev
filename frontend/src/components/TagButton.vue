@@ -25,7 +25,7 @@
           opacity-0 -right-2 
           group-hover:opacity-100 group-hover:right-3 
           max-md:text-white"
-        :icon="['fas', 'plus']" />
+        :icon="['fas', 'tag']" />
     </RouterLink>
   </template>
   

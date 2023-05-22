@@ -16,9 +16,9 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
-import { faPlus, faRightFromBracket, faDownload, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faRightFromBracket, faDownload, faTrash, fatag } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faPlus, faRightFromBracket, faDownload, faTrash)
+library.add(faPlus, faRightFromBracket, faDownload, faTrash, fatag)
 
 const app = createApp(App)
 .component('IconButton', IconButton)
