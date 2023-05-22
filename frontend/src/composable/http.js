@@ -6,7 +6,6 @@ export async function myFetch(ressource, config = {}) {
 
     config.headers = {
         authorization : localStorage.getItem('token'),
-        'Content-Type': 'application/json'
     };
 
     const response = await fetch(ressource , config);

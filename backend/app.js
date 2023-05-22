@@ -21,7 +21,7 @@ const auth = require('./middleware/auth')
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
-app.use(cors())
+app.use(cors({allowedHeaders: ['Content-Type', 'Authorization'], origin: '*'}))
 app.use('/memes', auth.verifyToken, memesRouter);
 app.use('/memes/delete',auth.verifyToken, deleteRouter);
 app.use('/memes/create',auth.verifyToken, createRouter);

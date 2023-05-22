@@ -11,7 +11,7 @@ const Tag = db.define('tags', {
     name: {
         type: Sequelize.STRING,
         allowNull: false
-    },
+    }
 },{
     timestamps: false,
     createdAt: false,

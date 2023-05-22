@@ -8,7 +8,7 @@
     max-w-64 max-h-64
     duration-300
     max-md:col-span-2">
-        <img :src="image" :alt="name"
+        <img :src="'http://localhost:9000/memes-bucket/'+image" :alt="name"
         class="
         object-cover
         w-full h-full

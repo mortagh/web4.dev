@@ -16,6 +16,10 @@ const Meme = db.define('memes', {
         type: Sequelize.STRING,
         allowNull: false
     }
+},{
+    timestamps: false,
+    createdAt: false,
+    updatedAt: false,
 });
 
 Meme.associate = function (models) {
