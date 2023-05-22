@@ -5,11 +5,14 @@ const Jimp = require("jimp");
 
 router.post("/", upload.single("image"), async (req, res) => {
   const image = req.file;
+  const bottomText = req.body.bottomText;
+  const topText = req.body.topText;
+
   const font = await Jimp.loadFont(Jimp.FONT_SANS_32_BLACK);
   const jimpImage = await Jimp.read(Buffer.from(image.buffer, "base64"));
 
-  jimpImage.print(font, 10, 0, "Texte en haut");
-  jimpImage.print(font, 10, 10, "Texte en bas");
+  jimpImage.print(font, 10, 0, topText);
+  jimpImage.print(font, 10, 10, bottomText);
 
   const params = {
     Bucket: process.env.BUCKET_NAME,
