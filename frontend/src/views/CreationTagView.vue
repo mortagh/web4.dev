@@ -70,14 +70,17 @@ export default {
             }
 
             // Envoyez la requête POST pour ajouter le tag
-            myFetch("http://localhost:3000/tags", {
+            fetch("http://localhost:3000/tags", {
                 method: "POST",
+                body: JSON.stringify(data),
                 headers: {
                     "Content-Type": "application/json",
+                    authorization: localStorage.getItem('token'),
                 },
-                body: JSON.stringify(data),
             })
                 .then((response) => {
+            console.log(data);
+
                     if (!response.ok) {
                         throw new Error("Erreur lors de la création du tag");
                     }
