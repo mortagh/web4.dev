@@ -33,6 +33,7 @@
                         :tags="tags"
                         v-model="meme.tags"
                     />
+                    <p>{{ meme.tags }}</p>
                     <SubmitButton name="Créer" />
                 </form>
                 <img

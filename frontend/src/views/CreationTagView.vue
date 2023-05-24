@@ -60,40 +60,41 @@ export default {
     },
     methods: {
         addTag() {
-            const data = {
-                name: this.tag.name,
-            };
+  const data = {
+    name: this.tag.name,
+  };
 
-            if (!data.name) {
-                alert("Veuillez remplir tous les champs");
-                return;
-            }
+  if (!data.name) {
+    alert("Veuillez remplir tous les champs");
+    return;
+  }
 
-            // Envoyez la requête POST pour ajouter le tag
-            fetch("http://localhost:3000/tags", {
-                method: "POST",
-                body: JSON.stringify(data),
-                headers: {
-                    "Content-Type": "application/json",
-                    authorization: localStorage.getItem('token'),
-                },
-            })
-            .then((response) => {
-                console.log(data);
+  // Envoyez la requête POST pour ajouter le tag
+  fetch("http://localhost:3000/tags", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+      authorization: localStorage.getItem('token'),
+    },
+  })
+  .then(async (response) => {
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.error);
+    }
 
-                if (!response.ok) {
-                    throw new Error("Erreur lors de la création du tag");
-                }
-                // Réinitialisez le formulaire
-                this.tag.name = "";
-                this.getTags();
-            })
-            .catch((error) => {
-                console.error(error);
-                // Affichez un message d'erreur à l'utilisateur
-                alert("Erreur lors de la création du tag");
-            });
-        },
+    // Réinitialisez le formulaire
+    this.tag.name = "";
+    this.getTags();
+  })
+  .catch((error) => {
+    console.error(error);
+    // Affichez un message d'erreur à l'utilisateur
+    alert("Erreur lors de la création du tag: " + error.message);
+  });
+},
+
 
         async getTags() {
             const response = await myFetch("http://localhost:3000/tags");
