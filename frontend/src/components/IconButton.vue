@@ -28,7 +28,6 @@ export default {
     cursor-pointer
     aspect-square
     hover:text-white hover:bg-purple
-    max-md:
     ">
         <font-awesome-icon 
         class="h-4 max-md:h3"

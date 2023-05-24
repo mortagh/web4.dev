@@ -38,6 +38,9 @@ module.exports = {
     },
     extend: {},
   },
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   plugins: [],
 }
 

@@ -14,7 +14,7 @@
                     src="/public/illustration2.svg"
                     alt="illustration"
                 />
-                <div class="flex relative flex-col w-2/3 mb-6 items-center">
+                <div class="flex relative flex-col w-2/3 mb-6 items-center max-md:w-full">
                     <form
                         class="flex flex-col w-full gap-8 px-12 pt-4 pb-6 max-md:px-8 max-md:pt-2"
                     >

@@ -37,14 +37,19 @@ export default {
 
 <style scoped>
 .router-link-active {
-  background: white !important;
-  color: #6300FF !important;
-  padding: 10px 32px 10px 12px !important;
-  cursor: default !important;
+    background: white !important;
+    color: #6300FF !important;
+    cursor: default !important;
 }
-.router-link-active svg {
-  opacity: 1 !important;
-  right: 12px !important;
+
+@media screen and (min-width: 768px) {
+  .router-link-active {
+    padding: 10px 32px 10px 12px !important;
+  }
+  .router-link-active svg {
+    opacity: 1 !important;
+    right: 12px !important;
+  }
 }
 @media not all and (min-width: 768px) {
   .router-link-active svg {
