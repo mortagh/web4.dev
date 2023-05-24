@@ -15,7 +15,7 @@
                     alt="illustration"
                 />
                 <div class="flex relative flex-col w-2/3 mb-6 items-center max-md:w-full">
-                    <form
+                    <form @submit.prevent="addTag()"
                         class="flex flex-col w-full gap-8 px-12 pt-4 pb-6 max-md:px-8 max-md:pt-2"
                     >
                         <MyInput
@@ -23,7 +23,7 @@
                             placeholder="Tag"
                             v-model="tag.name"
                         />
-                        <SubmitButton name="Ajouter" @click="addTag()" />
+                        <SubmitButton name="Ajouter"/>
                     </form>
                     <table class="w-3/5 text-black mt-4">
                         <tr
@@ -78,21 +78,21 @@ export default {
                     authorization: localStorage.getItem('token'),
                 },
             })
-                .then((response) => {
-            console.log(data);
+            .then((response) => {
+                console.log(data);
 
-                    if (!response.ok) {
-                        throw new Error("Erreur lors de la création du tag");
-                    }
-                    // Réinitialisez le formulaire
-                    this.tag.name = "";
-                    this.getTags();
-                })
-                .catch((error) => {
-                    console.error(error);
-                    // Affichez un message d'erreur à l'utilisateur
-                    alert("Erreur lors de la création du tag");
-                });
+                if (!response.ok) {
+                    throw new Error("Erreur lors de la création du tag");
+                }
+                // Réinitialisez le formulaire
+                this.tag.name = "";
+                this.getTags();
+            })
+            .catch((error) => {
+                console.error(error);
+                // Affichez un message d'erreur à l'utilisateur
+                alert("Erreur lors de la création du tag");
+            });
         },
 
         async getTags() {

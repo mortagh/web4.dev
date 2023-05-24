@@ -9,7 +9,7 @@
                 Créer un meme
             </h1>
             <div class="flex relative">
-                <form
+                <form @submit.prevent="addMeme()"
                     class="flex flex-col w-2/3 gap-8 px-12 pt-4 pb-6 max-md:w-full max-md:px-8 max-md:pt-2"
                 >
                     <MyInput
@@ -17,7 +17,7 @@
                         placeholder="Nom"
                         v-model="meme.name"
                     />
-                    <FileInput name="image" @file-selected="meme.image = $event" />
+                    <FileInput name="image" v-model="meme.image" />
                     <MyInput
                         name="text-top"
                         placeholder="Texte du haut"
@@ -33,7 +33,7 @@
                         :tags="tags"
                         v-model="meme.tags"
                     />
-                    <SubmitButton name="Créer" @click="addMeme()" />
+                    <SubmitButton name="Créer" />
                 </form>
                 <img
                     class="w-1/3 max-md:hidden self-end"

@@ -1,6 +1,6 @@
 <template>
     
-    <input type="button" :value="name"
+    <input type="submit" :value="name"
     class="
     bg-black text-white
     font-base
@@ -25,7 +25,6 @@ export default {
     data() {
         return {
         };
-    },
-
+    }
 }
 </script>

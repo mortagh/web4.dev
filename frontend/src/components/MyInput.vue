@@ -1,7 +1,7 @@
 <template>
 
-    <input required :type="type" :name="name" :id="name" :placeholder="placeholder" v-model="value"
-    @change="$emit('input', value)" 
+    <input required :type="type" :name="name" :id="name" :placeholder="placeholder"
+    @change="$emit('input', value)" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)"
     class="
     text-purple
     font-base
@@ -27,7 +27,10 @@ export default {
             default: "text",
             type: String
         },
-        placeholder: String
+        placeholder: String,
+        modelValue: {
+            type: String
+        }
     },
     data() {
         return {

@@ -2,7 +2,7 @@
     <div>
       <VueMultiselect
         required
-        v-model="selected"
+        v-model="modelValue"
         :options="tags"
         :multiple="true"
         :close-on-select="false"
@@ -10,7 +10,8 @@
         :openDirection="bottom"
         :searchable="false"
         label="name"
-        track-by="name">
+        track-by="name"
+        :value="modelValue" @input="$emit('update:modelValue', $event.target.value)">
       </VueMultiselect>
     </div>
   </template>
@@ -26,7 +27,7 @@
     },
     data () {
       return {
-        selected: []
+        modelValue: []
       }
     }
   }
