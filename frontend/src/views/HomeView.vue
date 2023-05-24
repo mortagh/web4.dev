@@ -21,7 +21,7 @@
         :key="meme.id"
         :name="meme.name"
         :image="meme.image"
-        :tags="meme.tag_names"
+        :tags="JSON.parse(meme.tag_names)"
         :id="meme.id"
         @deleteMeme="deleteMeme(meme.id)"
       />
