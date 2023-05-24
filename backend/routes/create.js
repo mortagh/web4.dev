@@ -58,13 +58,11 @@ router.post("/", upload.single("image"), async (req, res) => {
           .json({ message: "Une erreur s'est produite lors du téléchargement de l'image." });
       }
 
-      const imageUrl = data.Location;
-
       const connection = dbConnect();
       const sql = "INSERT INTO memes (name, image) VALUES (?, ?)";
       const sql2 = "INSERT INTO meme_tag (meme_id, tag_id) VALUES (?, ?)";
 
-      connection.query(sql, [name, imageUrl], function (err, result) {
+      connection.query(sql, [name, key], function (err, result) {
         if (err) throw err;
         console.log("Meme inséré dans la base de données.");
         const memeId = result.insertId;
@@ -83,7 +81,7 @@ router.post("/", upload.single("image"), async (req, res) => {
           Promise.all(tagInsertPromises);
           console.log("Toutes les relations meme_tag ont été insérées dans la base de données.");
           connection.end();
-          res.json({ message: imageUrl });
+          res.json({ message: key });
         } catch (err) {
           console.error(err);
           connection.end();
