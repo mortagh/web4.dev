@@ -28,12 +28,14 @@
         max-md:translate-y-0 max-md:px-1.5
         ">
             <div class="w-3/4">
-                <h3 class="text-xl font-main leading-5">{{ name }}</h3>
-                <div class="text-base flex gap-2">
-                    <span v-for="tag in tags">{{tag}}</span>
+                <h3 class="text-xl font-main leading-5 mb-2">{{ name }}</h3>
+                <div class="text-base leading-4 flex gap-2 flex-wrap">
+                  <template v-if="tags[0] != null">
+                    <span class="bg-white px-2.5 py-0.5 rounded-main text-sm text-purple" v-for="tag in tags">{{tag}}</span>
+                  </template>
                 </div>
             </div>
-            <a download :href="image"><IconButton icon="download"/></a>
+            <a download target="_blank" :href="'http://localhost:9000/memes-bucket/'+image"><IconButton icon="download"/></a>
         </div>
 
     </div>
