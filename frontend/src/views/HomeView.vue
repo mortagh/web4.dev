@@ -13,7 +13,8 @@
       <button v-for="tag in tags" :key="tag.id" @click="filter(tag.name)"
       class="text-purple text-base bg-white py-1 px-6 rounded-main
         border-2 border-purple 
-        hover:bg-purple hover:text-white">
+        hover:bg-purple hover:text-white"
+        :class="{'text-white':tag.name==show, 'bg-purple':tag.name==show}">
         <li>{{tag.name}}</li></button>
     </ul>
     <p>{{show}}</p>
@@ -25,10 +26,9 @@
         max-md:w-11/12
       "
     >
-    <template
-        v-for="meme in memes" 
-        :key="meme.id">
       <MemeCard
+        v-for="meme in memes" 
+        :key="meme.id"
         :filter="show"
         :name="meme.name"
         :image="meme.image"
@@ -36,7 +36,6 @@
         :id="meme.id"
         @deleteMeme="deleteMeme(meme.id)"
       />
-    </template>
     </section>
   </main>
 </template>

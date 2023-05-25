@@ -7,8 +7,8 @@
     aspect-square
     max-w-64 max-h-64
     duration-300
-    max-md:col-span-2">
-    <p>{{ show(filter, tags) }}</p>
+    max-md:col-span-2"
+    v-show="show(filter, tags)">
         <img :src="'http://localhost:9000/memes-bucket/'+image" :alt="name"
         class="
         object-cover
@@ -67,7 +67,7 @@ export default {
     },
     show(filter, tags) {
       for (let i = 0; i < tags.length; i++) {
-        if (tags[i].name === filter) {
+        if (tags[i] === filter) {
           return true
         }
       }
