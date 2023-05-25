@@ -3,18 +3,18 @@
     <h1 
       class="
         font-main font-semibold text-purple text-5xl text-center
-        max-md:w-4/5 max-md:mx-auto
+        max-md:w-full max-md:mx-auto
       "
     >
       Bienvenue sur Meme4.dev
     </h1>
     <ul
-    class="flex w-4/5 flex-row gap-3 m-auto justify-center">
+    class="flex w-full flex-row gap-3 m-auto justify-center">
       <button @click="show=''"
       class="text-purple text-base bg-white py-1 px-6 rounded-main
         border-2 border-purple 
         hover:bg-purple hover:text-white"
-        :class="{'text-white':show==''}">
+        :class="{'text-white':show=='', 'bg-purple-important':show==''}">
         <li>
           tous
         </li>
