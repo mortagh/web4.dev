@@ -33,7 +33,6 @@
                         :tags="tags"
                         @updated="(value) => meme.tags = value"
                     />
-                    <p>{{ meme.tags }}</p>
                     <SubmitButton name="Créer" />
                 </form>
                 <img
