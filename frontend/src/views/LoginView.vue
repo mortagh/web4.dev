@@ -14,7 +14,7 @@
           src="/public/illustration2.svg"
           alt="illustration"
         />
-        <form
+        <form @submit.prevent="login()"
           class="flex flex-col w-2/3 gap-8 px-12 pt-4 pb-6 max-md:w-full max-md:px-8 max-md:pt-2"
         >
           <MyInput
@@ -28,7 +28,7 @@
             type="password"
             v-model="admin.password"
           />
-          <SubmitButton name="Se connecter" @click="login()" />
+          <SubmitButton name="Se connecter" />
         </form>
       </div>
     </section>
