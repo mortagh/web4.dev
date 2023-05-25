@@ -10,6 +10,15 @@
     </h1>
     <ul
     class="flex w-4/5 flex-row gap-3 m-auto justify-center">
+      <button @click="show=''"
+      class="text-purple text-base bg-white py-1 px-6 rounded-main
+        border-2 border-purple 
+        hover:bg-purple hover:text-white"
+        :class="{'text-white':show==''}">
+        <li>
+          all
+        </li>
+      </button>
       <button v-for="tag in tags" :key="tag.id" @click="filter(tag.name)"
       class="text-purple text-base bg-white py-1 px-6 rounded-main
         border-2 border-purple 
