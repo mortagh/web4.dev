@@ -16,6 +16,12 @@ router.post("/", upload.single("image"), async (req, res) => {
 
     const jimpImage = await Jimp.read(Buffer.from(image.buffer, "base64"));
 
+    // Vérification des champs obligatoires
+    if (!image || !bottomText || !topText || !name || !tags || !Array.isArray(tags) || tags.length === 0) {
+      // Les champs obligatoires ne sont pas renseignés ou invalides
+      return res.status(400).json({ message: "Tous les champs obligatoires doivent être renseignés." });
+    }
+
     const imageEdit = await editImage(jimpImage, bottomText, topText);
 
     const params = {
