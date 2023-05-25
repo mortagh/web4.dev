@@ -11,7 +11,7 @@
         :searchable="false"
         label="name"
         track-by="name"
-        :value="modelValue" @input="$emit('update:modelValue', $event.target.value)">
+        :value="modelValue" @close="$emit('updated', modelValue)">
       </VueMultiselect>
     </div>
   </template>

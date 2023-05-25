@@ -31,7 +31,7 @@
                     <MySelect
                         placeholder="Tags"
                         :tags="tags"
-                        v-model="meme.tags"
+                        @updated="(value) => meme.tags = value"
                     />
                     <p>{{ meme.tags }}</p>
                     <SubmitButton name="Créer" />
@@ -76,7 +76,7 @@ export default {
     methods: {
         async addMeme() {
             const data = new FormData();
-            console.log(this.meme.image);
+            console.log(data);
             data.append("name", this.meme.name);
             data.append("image", this.meme.image);
             data.append("topText", this.meme.textTop);
@@ -86,11 +86,13 @@ export default {
                 data.get("name") === "" ||
                 data.get("image") === null ||
                 data.get("textTop") === "" ||
-                data.get("textBottom") === ""
+                data.get("textBottom") === "" ||
+                data.get("tags") === ""
             ) {
                 alert("Veuillez remplir tous les champs");
                 return;
             }
+            console.log(data);
 
             myFetch("http://localhost:3000/memes/create", {
                 method: "POST",
