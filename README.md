@@ -51,7 +51,7 @@ Ouvrir un terminal
 
     c. Aller sur le bucket et le mettre en `public`
 
-__Et voilà l'installation est fini.__
+__Et voilà l'installation est terminée.__
 
 ## Liens d'accès
 
