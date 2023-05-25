@@ -1,20 +1,67 @@
 const express = require('express')
 const app = express()
-const jimp  = require('jimp');
+const Jimp  = require('jimp');
+const path =require('path')
+
+// async function editImage(imageEdit, bottomText, topText) {
+//   // let fPath = path.resolve(__dirname,'font/font.fnt')
+//   let fPath = path.resolve(Jimp.FONT_SANS_32_WHITE)
+  
+//   const font = await Jimp.loadFont(fPath);
+  
+//   var w = imageEdit.bitmap.width;
+//   var h = imageEdit.bitmap.height;
+//   var topTextWidth = Jimp.measureText(font, topText);
+//   var topTextHeight = Jimp.measureTextHeight(font, topText);
+  
+//   var bottomTextWidth = Jimp.measureText(font, bottomText);
+//   var bottomTextHeight = Jimp.measureTextHeight(font, bottomText);
+//   imageEdit.print(
+//     font, w/2 - topTextWidth/2, 0,
+//     {
+//       text: topText,
+//       alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
+//       alignmentY: Jimp.VERTICAL_ALIGN_TOP,
+//   },topTextWidth, topTextHeight);
+//   imageEdit.print(
+//     font, w/2 - bottomTextWidth/2, h - bottomTextHeight,
+//     {
+//       text: bottomText,
+//       alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
+//       alignmentY: Jimp.VERTICAL_ALIGN_BOTTOM,
+//   },bottomTextWidth, bottomTextHeight);
+
+//   return imageEdit;
+// }
 
 module.exports = {
-  
-    textImage :function(file) {
-      image = jimp.read(file);
+  editImage: async function(imageEdit, bottomText, topText){
+    let fPath = path.resolve(Jimp.FONT_SANS_32_WHITE)
+    
+    const font = await Jimp.loadFont(fPath);
+    
+    var w = imageEdit.bitmap.width;
+    var h = imageEdit.bitmap.height;
+    var topTextWidth = Jimp.measureText(font, topText);
+    var topTextHeight = Jimp.measureTextHeight(font, topText);
+    
+    var bottomTextWidth = Jimp.measureText(font, bottomText);
+    var bottomTextHeight = Jimp.measureTextHeight(font, bottomText);
+    imageEdit.print(
+      font, w/2 - topTextWidth/2, 0,
+      {
+        text: topText,
+        alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
+        alignmentY: Jimp.VERTICAL_ALIGN_TOP,
+    },topTextWidth, topTextHeight);
+    imageEdit.print(
+      font, w/2 - bottomTextWidth/2, h - bottomTextHeight,
+      {
+        text: bottomText,
+        alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
+        alignmentY: Jimp.VERTICAL_ALIGN_BOTTOM,
+    },bottomTextWidth, bottomTextHeight);
 
-      let xtop = jimp.HORIZONTAL_ALIGN_CENTER;
-      let ytop = jimp.VERTICAL_ALIGN_TOP;
-      let xbottom = jimp.HORIZONTAL_ALIGN_CENTER;
-      let ybottom = jimp.VERTICAL_ALIGN_BOTTOM;
-
-      jimp.loadFont('./font/Roboto-Regular.fnt').then((font) => {    
-        image.print(font, xtop, ytop, "texte du haut"); 
-        image.print(font, xbottom, ybottom, "texte du bas");
-      });
+    return imageEdit;
   }
-};
+}
