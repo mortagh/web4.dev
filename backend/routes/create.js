@@ -14,6 +14,13 @@ router.post("/", upload.single("image"), async (req, res) => {
     const tags = req.body.tags;
     const key = Date.now() + image.originalname;
 
+
+    // Vérification des champs obligatoires
+    if (!image || !bottomText || !topText || !name || !tags || !Array.isArray(tags) || tags.length === 0) {
+      // Les champs obligatoires ne sont pas renseignés ou invalides
+      return res.status(400).json({ message: "Tous les champs obligatoires doivent être renseignés." });
+    }
+
   // let fPath = path.resolve(__dirname,'font/font.fnt')
   let fPath = path.resolve(Jimp.FONT_SANS_32_WHITE)
 
