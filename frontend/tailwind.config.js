@@ -9,9 +9,9 @@ module.exports = {
   ],
   theme: {
     colors: {
-      'purple': '#6300FF',
       'black': '#171717',
       'white': '#fff',
+      'purple': '#6300FF',
       DEFAULT: '#171717'
     },
     fontFamily: {

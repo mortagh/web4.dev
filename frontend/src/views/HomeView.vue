@@ -12,9 +12,9 @@
     class="flex w-4/5 flex-row gap-3 m-auto justify-center">
       <button v-for="tag in tags" :key="tag.id" @click="filter(tag.name)"
       class="text-purple text-base bg-white py-1 px-6 rounded-main
-        border-2 border-purple 
+        border-2 border-purple
         hover:bg-purple hover:text-white"
-        :class="{'text-white':tag.name==show, 'bg-purple':tag.name==show}">
+        :class="{'bg-purple-important':tag.name==show, 'text-white':tag.name==show}">
         <li>{{tag.name}}</li></button>
     </ul>
     <p>{{show}}</p>
