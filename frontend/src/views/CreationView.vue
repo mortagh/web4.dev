@@ -9,7 +9,8 @@
                 Créer un meme
             </h1>
             <div class="flex relative">
-                <form @submit.prevent="addMeme()"
+                <form
+                    @submit.prevent="addMeme()"
                     class="flex flex-col w-2/3 gap-8 px-12 pt-4 pb-6 max-md:w-full max-md:px-8 max-md:pt-2"
                 >
                     <MyInput
@@ -17,7 +18,7 @@
                         placeholder="Nom"
                         v-model="meme.name"
                     />
-                    <FileInput name="image" v-model="meme.image" />
+                    <FileInput name="image" @file-selected="meme.image = $event" />
                     <MyInput
                         name="text-top"
                         placeholder="Texte du haut"
@@ -31,7 +32,7 @@
                     <MySelect
                         placeholder="Tags"
                         :tags="tags"
-                        @updated="(value) => meme.tags = value"
+                        @updated="(value) => (meme.tags = value)"
                     />
                     <SubmitButton name="Créer" />
                 </form>
@@ -69,6 +70,7 @@ export default {
                 tags: [],
             },
             tags: [],
+            tagsId: [],
         };
     },
 
@@ -76,11 +78,16 @@ export default {
         async addMeme() {
             const data = new FormData();
             console.log(data);
+            console.log(this.meme.image + 'image');
+            // Récupérer les identifiants des tags sélectionnés
+            this.tagsId = this.meme.tags.map(({ id }) => id);
+            const tagsArray = this.tagsId.map(String);
+            console.log(tagsArray);
             data.append("name", this.meme.name);
             data.append("image", this.meme.image);
             data.append("topText", this.meme.textTop);
             data.append("bottomText", this.meme.textBottom);
-            data.append("tags", this.meme.tags.join(","));
+            data.append("tags", JSON.stringify(tagsArray));
             if (
                 data.get("name") === "" ||
                 data.get("image") === null ||
@@ -97,7 +104,6 @@ export default {
                 method: "POST",
                 headers: {
                     "Content-Type": "multipart/form-data",
-
                 },
                 body: data,
             })

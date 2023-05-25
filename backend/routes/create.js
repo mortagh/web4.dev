@@ -6,12 +6,14 @@ const { dbConnect } = require('../module');
 const { editImage } = require('../jimp/editImage');
 
 router.post("/", upload.single("image"), async (req, res) => {
+  console.log(req.body)
+  console.log(req.file)
   try {
     const image = req.file;
     const bottomText = req.body.bottomText;
     const topText = req.body.topText;
     const name = req.body.name;
-    const tags = req.body.tags;
+    const tags = JSON.parse(req.body.tags);
     const key = Date.now() + image.originalname;
 
     const jimpImage = await Jimp.read(Buffer.from(image.buffer, "base64"));
