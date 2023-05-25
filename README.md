@@ -4,7 +4,24 @@ Un projet fictif d'une platform de création de meme.
 
 Avec une API en Node.js et Express et un Front en Vue.js et Tailwind.  
 
-Tout le projet est sur Docker  
+Tout le projet est sur __Docker__  
+
+## Présentation
+
+   ### Frontend  
+   Cette application comporte une arborescence de 4 pages :  
+    * `/login` Une page de connexion  
+    * `/` Une page d'accueil avec tous les memes  
+    * `/creation` Une page de création de meme  
+    * `/tag` Une page d'ajout de tag et d'affichage des tags  
+        
+   ### Backend  
+   L'API comporte 5 endpoints :  
+    * `/memes` Retourne l’ensemble des chemins vers les memes  
+    * `/memes/create` Création d’un même  
+    * `/memes/delete` Suppression d’un meme  
+    * `/auth` Connexion à l’interface  
+    * `/tags` Création d’un tag, suppression d'un tag et Retourne l’ensemble des chemins vers les tags  
 
 
 ## installation
