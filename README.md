@@ -15,7 +15,7 @@ Ouvrir un terminal
 
         npm i
     
-    b. faire la même commande dans le dossier frontend  
+    b. __faire la même commande dans le dossier frontend__  
  
   
 2. aller à la racine et faire la commande :  
