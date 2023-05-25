@@ -16,7 +16,7 @@
         hover:bg-purple hover:text-white"
         :class="{'text-white':show==''}">
         <li>
-          all
+          tous
         </li>
       </button>
       <button v-for="tag in tags" :key="tag.id" @click="filter(tag.name)"
@@ -26,7 +26,6 @@
         :class="{'text-white':tag.name==show, 'bg-purple':tag.name==show}">
         <li>{{tag.name}}</li></button>
     </ul>
-    <p>{{show}}</p>
     <section
       class="
         memes
