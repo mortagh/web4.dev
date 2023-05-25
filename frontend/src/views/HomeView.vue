@@ -8,6 +8,15 @@
     >
       Bienvenue sur Meme4.dev
     </h1>
+    <ul
+    class="flex w-4/5 flex-row gap-3 m-auto justify-center">
+      <button v-for="tag in tags" :key="tag.id" @click="filter(tag.name)"
+      class="text-purple text-base bg-white py-1 px-6 rounded-main
+        border-2 border-purple 
+        hover:bg-purple hover:text-white">
+        <li>{{tag.name}}</li></button>
+    </ul>
+    <p>{{show}}</p>
     <section
       class="
         memes
@@ -16,15 +25,18 @@
         max-md:w-11/12
       "
     >
+    <template
+        v-for="meme in memes" 
+        :key="meme.id">
       <MemeCard
-        v-for="meme in memes"
-        :key="meme.id"
+        :filter="show"
         :name="meme.name"
         :image="meme.image"
         :tags="JSON.parse(meme.tag_names)"
         :id="meme.id"
         @deleteMeme="deleteMeme(meme.id)"
       />
+    </template>
     </section>
   </main>
 </template>
@@ -40,6 +52,8 @@ export default {
   data() {
     return {
       memes: [],
+      tags: [],
+      show: ""
     };
   },
 
@@ -53,11 +67,21 @@ export default {
       const response = await myFetch('http://localhost:3000/memes');
       const memes = await response.json();
       this.memes = memes;
+    },
+    async getTags() {
+      const response = await myFetch("http://localhost:3000/tags");
+      const tags = await response.json();
+      this.tags = tags;
+    },
+
+    filter(tag) {
+      this.show = tag;
     }
   },
 
   async created() {
     await this.getMemes();
+    await this.getTags();
   },
 };
 </script>

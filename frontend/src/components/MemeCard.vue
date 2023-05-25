@@ -8,6 +8,7 @@
     max-w-64 max-h-64
     duration-300
     max-md:col-span-2">
+    <p>{{ show(filter, tags) }}</p>
         <img :src="'http://localhost:9000/memes-bucket/'+image" :alt="name"
         class="
         object-cover
@@ -54,6 +55,7 @@ export default {
     tags: Array,
     meme: Object,
     deleteMeme: Function,
+    filter: String
   },
   components: {
     IconButton,
@@ -63,6 +65,13 @@ export default {
       await fetch(`http://localhost:3000/memes/delete/${this.id}`, { method: 'DELETE' });
       this.$emit('deleteMeme', this.id);
     },
+    show(filter, tags) {
+      for (let i = 0; i < tags.length; i++) {
+        if (tags[i].name === filter) {
+          return true
+        }
+      }
+    }
   },
 };
 </script>
