@@ -9,7 +9,7 @@
       Bienvenue sur Meme4.dev
     </h1>
     <ul
-    class="flex w-full flex-row gap-3 m-auto justify-center">
+    class="flex w-full flex-row gap-3 m-auto justify-center mt-2">
       <button @click="show=''"
       class="text-purple text-base bg-white py-1 px-6 rounded-main
         border-2 border-purple 
