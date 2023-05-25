@@ -10,18 +10,18 @@ Tout le projet est sur __Docker__
 
    ### Frontend  
    Cette application comporte une arborescence de 4 pages :  
-    * `/login` Une page de connexion  
-    * `/` Une page d'accueil avec tous les memes  
-    * `/creation` Une page de création de meme  
-    * `/tag` Une page d'ajout de tag et d'affichage des tags  
+   - `/login` Une page de connexion  
+   - `/` Une page d'accueil avec tous les memes  
+   - `/creation` Une page de création de meme  
+   - `/tag` Une page d'ajout de tag et d'affichage des tags  
         
    ### Backend  
    L'API comporte 5 endpoints :  
-    * `/memes` Retourne l’ensemble des chemins vers les memes  
-    * `/memes/create` Création d’un même  
-    * `/memes/delete` Suppression d’un meme  
-    * `/auth` Connexion à l’interface  
-    * `/tags` Création d’un tag, suppression d'un tag et Retourne l’ensemble des chemins vers les tags  
+   - `/memes` Retourne l’ensemble des chemins vers les memes  
+   - `/memes/create` Création d’un même  
+   - `/memes/delete` Suppression d’un meme  
+   - `/auth` Connexion à l’interface  
+   - `/tags` Création d’un tag, suppression d'un tag et Retourne l’ensemble des chemins vers les tags  
 
 
 ## installation
@@ -44,8 +44,8 @@ Ouvrir un terminal
 
 3. Aller sur Minio (http://localhost:9001/browser)  
     a. Pour la connexion à Minio :  
-        - Utilisateur : `minio-root-user`  
-        - Mot de passe : `minio-root-password`  
+    - Utilisateur : `minio-root-user`  
+    - Mot de passe : `minio-root-password`  
     
     b. Créer un bucket nommé `memes-bucket`
 
@@ -57,19 +57,19 @@ __Et voilà l'installation est fini.__
 
 - Front : http://localhost:5173/  
     Pour la connexion au front :  
-        - Utilisateur : `admin`  
-        - Mot de passe : `admin`  
+    - Utilisateur : `admin`  
+    - Mot de passe : `admin`  
 
 - API : http://localhost:3000/
 
 - Minio pour les images : http://localhost:9001/browser  
     Pour la connexion à Minio :  
-        - Utilisateur : `minio-root-user`  
-        - Mot de passe : `minio-root-password`  
+    - Utilisateur : `minio-root-user`  
+    - Mot de passe : `minio-root-password`  
 
 - Phpmyadmin : http://localhost:8080  
     Pour la connexion à Phpmyadmin :  
-        - Utilisateur : `minio-root-user`  
-        - Mot de passe : `minio-root-password`  
+    - Utilisateur : `minio-root-user`  
+    - Mot de passe : `minio-root-password`  
 
 - Mysql : http://localhost:3306
