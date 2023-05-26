@@ -4,9 +4,9 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 
-import IconButton from './components/IconButton.vue'
-import SubmitButton from './components/SubmitButton.vue'
-import MyInput from './components/MyInput.vue'
+import IconButton from './components/button/IconButton.vue'
+import SubmitButton from './components/form/SubmitButton.vue'
+import MyInput from './components/form/MyInput.vue'
 
 import './assets/main.css'
 

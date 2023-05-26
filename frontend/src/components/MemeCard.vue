@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import IconButton from './IconButton.vue';
+import IconButton from './button/IconButton.vue';
 
 export default {
   name: 'MemeCard',

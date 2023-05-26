@@ -1,7 +1,7 @@
 <script setup>
-import MemeButton from './MemeButton.vue'
-import LogoutButton from './LogoutButton.vue'
-import TagButton from './TagButton.vue'
+import MemeButton from './button/MemeButton.vue'
+import LogoutButton from './button/LogoutButton.vue'
+import TagButton from './button/TagButton.vue'
 </script>
 
 <template>

@@ -47,10 +47,10 @@
 </template>
 
 <script>
-import MySelect from "../components/MySelect.vue";
-import FileInput from "../components/FileInput.vue";
-import MyInput from "../components/MyInput.vue";
-import SubmitButton from "../components/SubmitButton.vue";
+import MySelect from "../components/form/MySelect.vue";
+import FileInput from "../components/form/FileInput.vue";
+import MyInput from "../components/form/MyInput.vue";
+import SubmitButton from "../components/form/SubmitButton.vue";
 import { myFetch } from "../composable/http";
 export default {
     components: {
@@ -123,6 +123,7 @@ export default {
                     // Affichez un message d'erreur à l'utilisateur
                     alert("Erreur lors de la création du meme");
                 });
+                alert("meme crée avec succès");
         },
         async getTags() {
             const response = await myFetch("http://localhost:3000/tags");
